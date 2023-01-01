@@ -2,13 +2,13 @@
 
 namespace App\Jobs;
 
+use App\Models\Invoice;
+use App\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use App\User;
-use App\Invoice;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 class ChargeInvoces implements ShouldQueue
 {

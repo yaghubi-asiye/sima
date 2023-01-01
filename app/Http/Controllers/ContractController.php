@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Contract;
+use App\Models\Contract;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -151,7 +151,7 @@ class ContractController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contract  $contract
+     * @param  \App\Models\Contract  $contract
      * @return Response
      */
     public function destroy($id)

@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Tdl;
-use App\User;
-use App\TimeSheet;
-use App\Mail\TdlEmail;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Requests\AddTdlRequest;
-use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\UpdateTdlRequest;
+use App\Models\Tdl;
+use App\Models\TimeSheet;
+use App\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
-use App\Http\Requests\UpdateTdlRequest;
-use Ipecompany\Smsirlaravel\Smsirlaravel;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TdlController extends Controller
 {

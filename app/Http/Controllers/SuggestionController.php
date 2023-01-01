@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Baner;
-use App\Suggestion;
-
-use Illuminate\Http\Request;
 use App\Http\Requests\AddSuggestionRequest;
+use App\Models\Baner;
+use App\Models\Suggestion;
+use App\User;
+use Illuminate\Http\Request;
 
 class SuggestionController extends Controller
 {
@@ -81,7 +80,7 @@ class SuggestionController extends Controller
   /**
   * Display the specified resource.
   *
-  * @param  \App\Suggestion  $suggestion
+  * @param  \App\Models\Suggestion  $suggestion
   * @return \Illuminate\Http\Response
   */
   public function show(Suggestion $suggestion)
@@ -92,7 +91,7 @@ class SuggestionController extends Controller
   /**
   * Show the form for editing the specified resource.
   *
-  * @param  \App\Suggestion  $suggestion
+  * @param  \App\Models\Suggestion  $suggestion
   * @return \Illuminate\Http\Response
   */
   public function edit(Suggestion $suggestion)
@@ -104,7 +103,7 @@ class SuggestionController extends Controller
   * Update the specified resource in storage.
   *
   * @param  \Illuminate\Http\Request  $request
-  * @param  \App\Suggestion  $suggestion
+  * @param  \App\Models\Suggestion  $suggestion
   * @return \Illuminate\Http\Response
   */
   public function update(Request $request, Suggestion $suggestion)
@@ -115,7 +114,7 @@ class SuggestionController extends Controller
   /**
   * Remove the specified resource from storage.
   *
-  * @param  \App\Suggestion  $suggestion
+  * @param  \App\Models\Suggestion  $suggestion
   * @return \Illuminate\Http\Response
   */
   public function destroy($id)

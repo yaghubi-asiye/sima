@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Proceeding;
+use App\Models\Proceeding;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -90,7 +90,7 @@ class ProceedingController extends Controller
 /**
 * Display the specified resource.
 *
-* @param  \App\Proceeding  $proceeding
+* @param  \App\Models\Proceeding  $proceeding
 * @return \Illuminate\Http\Response
 */
 public function show(Proceeding $proceeding)
@@ -101,7 +101,7 @@ public function show(Proceeding $proceeding)
 /**
 * Show the form for editing the specified resource.
 *
-* @param  \App\Proceeding  $proceeding
+* @param  \App\Models\Proceeding  $proceeding
 * @return \Illuminate\Http\Response
 */
 public function edit(Proceeding $proceeding)
@@ -113,7 +113,7 @@ public function edit(Proceeding $proceeding)
 * Update the specified resource in storage.
 *
 * @param  \Illuminate\Http\Request  $request
-* @param  \App\Proceeding  $proceeding
+* @param  \App\Models\Proceeding  $proceeding
 * @return \Illuminate\Http\Response
 */
 public function update(Request $request, Proceeding $proceeding)
@@ -124,7 +124,7 @@ public function update(Request $request, Proceeding $proceeding)
 /**
 * Remove the specified resource from storage.
 *
-* @param  \App\Proceeding  $proceeding
+* @param  \App\Models\Proceeding  $proceeding
 * @return \Illuminate\Http\Response
 */
 public function destroy($id)

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Invoice;
-use App\PurchaseRequest;
-use Illuminate\Http\Request;
 use App\Http\Requests\AddPurchaseRequest;
+use App\Models\Invoice;
+use App\Models\PurchaseRequest;
+use Illuminate\Http\Request;
 
 class PurchaseRequestController extends Controller
 {

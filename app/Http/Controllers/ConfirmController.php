@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Confirm;
-use App\CommissionPartial;
-use Illuminate\Http\Request;
 use App\Http\Requests\ConfirmRequest;
+use App\Models\Confirm;
 
 class ConfirmController extends Controller
 {

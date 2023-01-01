@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Avl;
+use App\Models\Avl;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -108,7 +108,7 @@ class AvlController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Avl  $avl
+     * @param  \App\Models\Avl  $avl
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

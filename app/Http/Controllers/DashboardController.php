@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Baner;
+use App\Models\Tdl;
 use App\User;
-use App\Tdl;
-use App\Baner;
-
+use Illuminate\Http\Request;
 
 
 class DashboardController extends Controller

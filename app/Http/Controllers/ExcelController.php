@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Invoice;
-use Illuminate\Http\Request;
+use App\Models\Invoice;
 use Maatwebsite\Excel\Facades\Excel;
 
 //use Maatwebsite\Excel\Excel;

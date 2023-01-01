@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\TimeSheet;
+use App\Http\Requests\AddTimeSheetRequest;
+use App\Models\TimeSheet;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
-use App\Http\Requests\AddTimeSheetRequest;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -119,7 +118,7 @@ class TimeSheetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TimeSheet  $timeSheet
+     * @param  \App\Models\TimeSheet  $timeSheet
      * @return \Illuminate\Http\Response
      */
     public function edit(TimeSheet $timeSheet)
@@ -131,7 +130,7 @@ class TimeSheetController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TimeSheet  $timeSheet
+     * @param  \App\Models\TimeSheet  $timeSheet
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, TimeSheet $timeSheet)
@@ -142,7 +141,7 @@ class TimeSheetController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TimeSheet  $timeSheet
+     * @param  \App\Models\TimeSheet  $timeSheet
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

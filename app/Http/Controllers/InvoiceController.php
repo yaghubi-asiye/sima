@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Invoice;
-
-use App\Product;
+use App\Http\Requests\AddInvoiceRequest;
+use App\Http\Requests\InvoiceStatusUpdateRequest;
+use App\Models\Invoice;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\AddInvoiceRequest;
-use App\Http\Requests\InvoiceStatusUpdateRequest;
 
 class InvoiceController extends Controller
 {

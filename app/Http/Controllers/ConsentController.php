@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Consent;
-use Illuminate\Http\Request;
 use App\Http\Requests\ConsentRequest;
+use App\Models\Consent;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class ConsentController extends Controller
 {
@@ -73,7 +73,7 @@ class ConsentController extends Controller
   /**
   * Display the specified resource.
   *
-  * @param  \App\Consent  $certificates
+  * @param  \App\Models\Consent  $certificates
   * @return \Illuminate\Http\Response
   */
   public function show(Consent $certificates)
@@ -155,7 +155,7 @@ class ConsentController extends Controller
   /**
   * Remove the specified resource from storage.
   *
-  * @param  \App\Consent  $certificates
+  * @param  \App\Models\Consent  $certificates
   * @return \Illuminate\Http\Response
   */
   public function destroy($id)

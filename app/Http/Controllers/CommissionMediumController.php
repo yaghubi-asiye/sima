@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Commission;
-use Illuminate\Http\Request;
 use App\Http\Requests\CommissionMediumRequest;
+use App\Models\Commission;
+use Illuminate\Http\Request;
 
 class CommissionMediumController extends Controller
 {

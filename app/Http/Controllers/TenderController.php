@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Tender;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
-use App\Http\Requests\TenderRequest;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Foundation\Application;
-use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\InvoiceStatusUpdateRequest;
+use App\Http\Requests\TenderRequest;
+use App\Models\Tender;
+use App\User;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TenderController extends Controller
 {
@@ -142,7 +142,7 @@ class TenderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tender  $tender
+     * @param  \App\Models\Tender  $tender
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request)
@@ -155,7 +155,7 @@ class TenderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tender  $tender
+     * @param  \App\Models\Tender  $tender
      * @return \Illuminate\Http\Response
      */
     public function update(TenderRequest $request, Tender $tender)
@@ -240,7 +240,7 @@ class TenderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tender  $tender
+     * @param  \App\Models\Tender  $tender
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

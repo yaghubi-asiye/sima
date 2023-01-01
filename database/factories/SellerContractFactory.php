@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\SellerContract::class, function (Faker $faker) {
+$factory->define(\App\Models\SellerContract::class, function (Faker $faker) {
     return [
         //
     ];

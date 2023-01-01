@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\NewParts;
 
-use App\User;
-use App\Baner;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\NewParts\NewtdlStoreRequest;
+use App\Models\Baner;
 use App\Models\Newtdl;
 use App\Models\NewtdlUser;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Repositories\NewtdlRepository;
-use App\Http\Requests\NewParts\NewtdlStoreRequest;
+use App\User;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class NewtdlController extends Controller
 {
@@ -24,7 +29,7 @@ class NewtdlController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Factory|Application|View
      */
     public function index()
     {
@@ -68,8 +73,8 @@ class NewtdlController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param NewtdlStoreRequest $request
+     * @return RedirectResponse
      */
     public function store(NewtdlStoreRequest $request)
     {
@@ -110,51 +115,38 @@ class NewtdlController extends Controller
     {
         $data = $this->prepareData($request);
         $this->newtdls->update($tdl, $data);
-
-        // dd($request->assignedTo);
         $tdl->users()->sync($request->assignedTo);
-
         $this->newtdls->sessionFlash();
         return redirect()->back();
 
     }
 
-    public function updateAssignerStatus(Request $request, Newtdl $tdl)
+    public function updateAssignerStatus(Request $request, Newtdl $tdl): RedirectResponse
     {
-
         $NewtdlUser = NewtdlUser::find($request->pivot_id);
         $NewtdlUser->update([
             'statusAssigner' => $request->statusAssigner,
             'descriptionAssigner' => $request->descriptionAssigner,
         ]);
-
         $this->newtdls->sessionFlash();
         return redirect()->back();
-
     }
 
 
-
-
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
         $newtdls = $this->newtdls->find($id);
         $newtdls->users()->detach();
         $this->newtdls->delete($newtdls);
         $this->newtdls->sessionFlash();
         return redirect()->back();
-
     }
 
 
-
-
-    public function prepareData($request)
+    public function prepareData($request): array
     {
         $fileName = $this->newtdls->uploadFile('Newtdl', $request->file('assignerAttachment'));
-
-
-        $data = [
+        return [
             'name' => $request->name,
             'description' => $request->description,
             'user_id' => auth()->user()->id,
@@ -162,6 +154,5 @@ class NewtdlController extends Controller
             'assignerAttachment' =>  $fileName,
             'priority' => $request->priority
         ];
-        return $data;
     }
 }

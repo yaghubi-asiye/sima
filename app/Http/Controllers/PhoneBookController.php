@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\PhoneBook;
 use App\Http\Requests\AddPhoneRequest;
+use App\Models\PhoneBook;
+use Illuminate\Http\Request;
 
 class PhoneBookController extends Controller
 {

@@ -2,10 +2,10 @@
 
 namespace App;
 
-use App\Models\Newtdl;
 use App\Models\ApprovalDetail;
-use Illuminate\Notifications\Notifiable;
+use App\Models\Newtdl;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -73,7 +73,7 @@ class User extends Authenticatable
     }
 
     public function tdls(){
-    return $this->hasMany('App\Tdl');
+    return $this->hasMany('App\Models\Tdl');
     }
 
 
@@ -82,28 +82,28 @@ class User extends Authenticatable
     }
 
     public function regulations(){
-        return $this->hasMany('App\Regulation');
+        return $this->hasMany('App\Models\Regulation');
     }
 
     public function invoices(){
-        return $this->hasMany('App\Invoice');
+        return $this->hasMany('App\Models\Invoice');
     }
 
     public function commissionMajors(){
-        return $this->hasMany('App\CommissionMajor');
+        return $this->hasMany('App\Models\CommissionMajor');
     }
     public function commissionPartials(){
-        return $this->hasMany('App\CommissionPartial');
+        return $this->hasMany('App\Models\CommissionPartial');
     }
     public function confirms(){
-        return $this->hasMany('App\Confirm');
+        return $this->hasMany('App\Models\Confirm');
     }
     public function PurchaseRequestForms(){
-        return $this->hasMany('App\PurchaseRequestForm');
+        return $this->hasMany('App\Models\PurchaseRequestForm');
     }
 
     public function timeSheets(){
-        return $this->hasMany('App\TimeSheet');
+        return $this->hasMany('App\Models\TimeSheet');
     }
 
 }

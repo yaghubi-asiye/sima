@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Commission;
-use App\CommissionMajor;
-use App\PurchaseRequest;
-use Illuminate\Http\Request;
 use App\Http\Requests\CommissionMajorRequest;
+use App\Models\CommissionMajor;
+use Illuminate\Http\Request;
 
 class CommissionMajorController extends Controller
 {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Dokumentation;
+use App\Models\Dokumentation;
 use Illuminate\Http\Request;
 
 class DokumentationController extends Controller
@@ -70,7 +70,7 @@ class DokumentationController extends Controller
 /**
 * Display the specified resource.
 *
-* @param  \App\Dokumentation  $Dokumentation
+* @param  \App\Models\Dokumentation  $Dokumentation
 * @return \Illuminate\Http\Response
 */
 public function show(Dokumentation $Dokumentation)
@@ -138,7 +138,7 @@ public function update(Request $request, $id): RedirectResponse
 /**
 * Remove the specified resource from storage.
 *
-* @param  \App\Dokumentation  $Dokumentation
+* @param  \App\Models\Dokumentation  $Dokumentation
 * @return \Illuminate\Http\Response
 */
 public function destroy($id)

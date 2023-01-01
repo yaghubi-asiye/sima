@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use App\Tdl;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Tdl;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

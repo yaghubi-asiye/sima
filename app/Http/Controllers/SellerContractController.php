@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\SellerContract;
+use App\Models\SellerContract;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -153,7 +153,7 @@ class SellerContractController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\SellerContract  $sellerContract
+     * @param  \App\Models\SellerContract  $sellerContract
      * @return Response
      */
     public function destroy($id)

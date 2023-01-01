@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Commission;
-use App\PurchaseRequest;
-use App\PaymentOrderForm;
-use App\CommissionPartial;
-use App\PurchaseRequestForm;
-use Illuminate\Http\Request;
 use App\Http\Requests\CommissionPartialRequest;
+use App\Models\CommissionPartial;
+use App\Models\PaymentOrderForm;
+use App\Models\PurchaseRequestForm;
+use Illuminate\Http\Request;
 
 class CommissionPartialController extends Controller
 {

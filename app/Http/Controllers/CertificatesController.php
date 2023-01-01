@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Certificates;
+use App\Models\Certificates;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -84,7 +84,7 @@ class CertificatesController extends Controller
 /**
 * Display the specified resource.
 *
-* @param  \App\Certificates  $certificates
+* @param  \App\Models\Certificates  $certificates
 * @return \Illuminate\Http\Response
 */
 public function show(Certificates $certificates)
@@ -166,7 +166,7 @@ public function update(Request $request, $id): RedirectResponse
 /**
 * Remove the specified resource from storage.
 *
-* @param  \App\Certificates  $certificates
+* @param  \App\Models\Certificates  $certificates
 * @return \Illuminate\Http\Response
 */
 public function destroy($id)

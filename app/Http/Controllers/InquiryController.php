@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Inquiry;
-use App\InquiryDetail;
-use Illuminate\Http\Request;
 use App\Http\Requests\InquiryRequest;
+use App\Models\Inquiry;
+use App\Models\InquiryDetail;
+use Illuminate\Http\Request;
 
 class InquiryController extends Controller
 {

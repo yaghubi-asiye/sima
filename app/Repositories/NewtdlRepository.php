@@ -1,11 +1,13 @@
 <?php
 namespace App\Repositories;
 
+use App\Models\Newtdl;
+
 class NewtdlRepository extends Repository
 {
-    public function model()
+    public function model(): string
     {
-        return \App\Models\Newtdl::class;
+        return Newtdl::class;
     }
-   
+
 }

@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers\NewParts;
 
-use App\User;
-use App\Proceeding;
-use App\Models\Approval;
-use Illuminate\Http\Request;
-use App\Models\ApprovalDetail;
-use App\Models\ApprovalDetailUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewParts\ApprovalStoreRequest;
+use App\Models\Approval;
+use App\Models\ApprovalDetail;
+use App\Models\ApprovalDetailUser;
+use App\User;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ApprovalController extends Controller
 {
     /**
      * Display a listing of the resource.
     *
-    * @return \Illuminate\Http\Response
-    */
+    * @return Factory|Application|View
+     */
     public function index()
     {
         $users = User::where('name', '!=', 'delete user')->get();
@@ -63,7 +66,7 @@ class ApprovalController extends Controller
   /**
   * Show the form for creating a new resource.
   *
-  * @return \Illuminate\Http\Response
+  * @return Response
   */
   public function create()
   {
@@ -75,7 +78,7 @@ class ApprovalController extends Controller
   * Store a newly created resource in storage.
   *
   * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
+  * @return Response
   */
   public function store(ApprovalStoreRequest $request)
   {
@@ -133,17 +136,6 @@ class ApprovalController extends Controller
 
 
 
-
-    public function show(Proceeding $proceeding)
-    {
-    //
-    }
-
-
-    public function edit(Proceeding $proceeding)
-    {
-    //
-    }
 
 
     public function update(Request $request, $id)

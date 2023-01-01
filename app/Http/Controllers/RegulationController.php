@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Regulation;
+use App\Models\Regulation;
 use Illuminate\Http\Request;
 
 class RegulationController extends Controller

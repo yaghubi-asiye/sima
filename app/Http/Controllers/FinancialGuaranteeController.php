@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\FinancialGuarantee;
-use Illuminate\Http\Request;
-use Morilog\Jalali\CalendarUtils;
 use App\Http\Requests\AddFinancialGuaranteeRequest;
+use App\Models\FinancialGuarantee;
+use Illuminate\Http\Request;
 
 class FinancialGuaranteeController extends Controller
 {
@@ -31,7 +30,7 @@ class FinancialGuaranteeController extends Controller
         ->whereDay('end_date',$days7->day)
         ->get();
 
-      
+
 
 
         return view('dashboards.financialGuarantee.financialGuarantee', compact('archives', 'guarantee3', 'guarantee7'));

@@ -72,12 +72,11 @@ abstract class Repository
 
     public function sessionFlash()
     {
-        $session =   \Session::flash('updateUser', array(
+        return \Session::flash('updateUser', array(
             'flash_title' => 'انجام شد',
             'flash_message' => ' با موفقیت  انجام شد',
             'flash_level' => 'success',
             'flash_button' => 'بستن'
         ));
-        return $session;
     }
 }

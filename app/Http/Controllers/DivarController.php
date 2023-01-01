@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Divar;
+use App\Models\Divar;
 use Illuminate\Http\Request;
 
 class DivarController extends Controller

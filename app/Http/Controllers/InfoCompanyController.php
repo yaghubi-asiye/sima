@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\InfoCompany;
+use App\Models\InfoCompany;
 use Illuminate\Http\Request;
 
 class InfoCompanyController extends Controller

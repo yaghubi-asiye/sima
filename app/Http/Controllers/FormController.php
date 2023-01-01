@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Form;
 use App\Http\Requests\AddFormRequest;
+use App\Models\Form;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
