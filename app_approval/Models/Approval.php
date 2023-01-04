@@ -1,17 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+namespace AppApproval\Models;
 
-class CreateApprovalsTable extends Migration
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class Approval extends Model
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    protected $guarded = [];
+    public static function schema()
     {
         Schema::create('approvals', function (Blueprint $table) {
             $table->increments('id');
@@ -27,13 +25,9 @@ class CreateApprovalsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function approvalDetails()
     {
-        Schema::dropIfExists('approvals');
+        return $this->hasMany(ApprovalDetail::class);
     }
+
 }

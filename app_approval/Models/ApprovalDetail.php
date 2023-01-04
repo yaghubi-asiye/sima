@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace AppApproval\Models;
 
 use App\User;
-use App\Models\Approval;
 use Illuminate\Database\Eloquent\Model;
 
 class ApprovalDetail extends Model

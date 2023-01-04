@@ -4,10 +4,10 @@ namespace App\Http\Controllers\NewParts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewParts\ApprovalStoreRequest;
-use App\Models\Approval;
-use App\Models\ApprovalDetail;
-use App\Models\ApprovalDetailUser;
 use App\User;
+use AppApproval\Models\Approval;
+use AppApproval\Models\ApprovalDetail;
+use AppApproval\Models\ApprovalDetailUser;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;

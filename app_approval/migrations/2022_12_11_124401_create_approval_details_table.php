@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateApprovalDetailsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('approval_details', function (Blueprint $table) {
@@ -26,11 +22,7 @@ class CreateApprovalDetailsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('approval_details');

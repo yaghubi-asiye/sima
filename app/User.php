@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Models\ApprovalDetail;
 use App\Models\Newtdl;
+use AppApproval\Models\ApprovalDetail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -36,10 +36,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Newtdl::class, 'newtdl_users')->withPivot('statusAssigner','result', 'attachment', 'id', 'status', 'descriptionAssigner');
     }
 
-    public function approvalDetails()
-    {
-        return $this->belongsToMany(ApprovalDetail::class, 'approval_detail_users')->withPivot('sender_id', 'id', 'sender_status','receiver_status', 'sender_result', 'receiver_result', 'receiver_attachment');
-    }
+//    public function approvalDetails()
+//    {
+//        return $this->belongsToMany(ApprovalDetail::class, 'approval_detail_users')->withPivot('sender_id', 'id', 'sender_status','receiver_status', 'sender_result', 'receiver_result', 'receiver_attachment');
+//    }
 
 
 

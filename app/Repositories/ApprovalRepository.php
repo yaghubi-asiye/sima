@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Approval;
+use AppApproval\Models\Approval;
 
 class ApprovalRepository extends  Repository
 {
