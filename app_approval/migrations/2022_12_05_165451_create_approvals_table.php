@@ -11,7 +11,6 @@ class CreateApprovalsTable extends Migration
     public function up()
     {
         Approval::schema();
-
     }
 
 
