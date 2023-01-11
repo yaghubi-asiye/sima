@@ -3,7 +3,6 @@
 namespace App;
 
 use App\Models\Newtdl;
-use AppApproval\Models\ApprovalDetail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 

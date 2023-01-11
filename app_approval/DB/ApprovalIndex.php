@@ -2,8 +2,8 @@
 
 namespace AppApproval\DB;
 
+use App\Models\ApprovalDetail;
 use App\User;
-use AppApproval\Models\ApprovalDetail;
 
 class ApprovalIndex
 {

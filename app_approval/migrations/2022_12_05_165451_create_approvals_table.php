@@ -1,9 +1,8 @@
 <?php
 
-use AppApproval\Models\Approval;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Approval;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreateApprovalsTable extends Migration
 {

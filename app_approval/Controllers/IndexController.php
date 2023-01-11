@@ -2,8 +2,8 @@
 
 namespace AppApproval\Controllers;
 
+use App\Models\ApprovalDetail;
 use App\User;
-use AppApproval\Models\ApprovalDetail;
 
 class IndexController
 {
