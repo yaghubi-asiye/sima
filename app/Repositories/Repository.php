@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Session;
+
 abstract class Repository
 {
     protected $model;
@@ -72,7 +74,7 @@ abstract class Repository
 
     public function sessionFlash()
     {
-        return \Session::flash('updateUser', array(
+        return Session::flash('updateUser', array(
             'flash_title' => 'انجام شد',
             'flash_message' => ' با موفقیت  انجام شد',
             'flash_level' => 'success',

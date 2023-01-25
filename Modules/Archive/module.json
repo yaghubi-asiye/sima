@@ -1,0 +1,16 @@
+{
+    "name": "Archive",
+    "alias": "archive",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Archive\\Providers\\ArchiveServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

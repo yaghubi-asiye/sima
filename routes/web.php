@@ -178,11 +178,11 @@ Route::post('phoneBooks','PhoneBookController@store')->middleware('auth');
 Route::get('phoneBook/delete/{id}','PhoneBookController@destroy')->middleware('auth');
 Route::post('phoneBook/update/{id}','PhoneBookController@update')->middleware('auth');
 
-//archives
-Route::get('archives/{type}','ArchiveController@index')->middleware('auth');
-Route::post('archives','ArchiveController@store')->middleware('auth');
-Route::delete('archive/delete/{id}','ArchiveController@destroy')->middleware('auth')->name('archive.delete');
-Route::post('archive/update/{id}','ArchiveController@update')->middleware('auth');
+////archives
+//Route::get('archives/{type}','ArchiveController@index')->middleware('auth');
+//Route::post('archives','ArchiveController@store')->middleware('auth');
+//Route::delete('archive/delete/{id}','ArchiveController@destroy')->middleware('auth')->name('archive.delete');
+//Route::post('archive/update/{id}','ArchiveController@update')->middleware('auth');
 
 //regulartions
 Route::get('regulations','RegulationController@index')->middleware('auth');
