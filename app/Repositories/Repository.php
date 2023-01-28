@@ -21,14 +21,10 @@ abstract class Repository
         return $this->model->orderBy('id', 'desc')->get();
     }
 
-    public function paginate($limit = 15)
-    {
-        return $this->model->orderBy('id', 'desc')->paginate($limit);
-    }
 
-    public function getBy($col, $value, $limit = 15)
+    public function getBy($col, $value)
     {
-        return $this->model->where($col, $value)->limit($limit)->orderBy('id', 'desc')->get();
+        return $this->model->where($col, $value)->orderBy('id', 'desc')->get();
     }
 
     public function getCountByAuth($col, $value)
@@ -39,6 +35,10 @@ abstract class Repository
     public function create(array $data)
     {
         return $this->model->create($data);
+    }
+    public function insert(array $data)
+    {
+        return $this->model->insert($data);
     }
 
     public function find($id)

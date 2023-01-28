@@ -6,10 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Archive\Entities\Archive;
+use Modules\Archive\Repositories\SheetRepository;
 
 class ArchiveController extends Controller
 {
 
+    private $archives;
+    public function __construct(SheetRepository $archives)
+    {
+        $this->archives = $archives;
+    }
     public function index($type)
     {
         $archives = Archive::where('type', $type)->get();
