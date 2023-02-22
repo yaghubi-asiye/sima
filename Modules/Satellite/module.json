@@ -1,0 +1,16 @@
+{
+    "name": "Satellite",
+    "alias": "satellite",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Satellite\\Providers\\SatelliteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

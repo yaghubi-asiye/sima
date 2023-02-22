@@ -4,8 +4,6 @@ namespace Modules\Project\Http\Controllers;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
 use Modules\Project\Http\Requests\SheetStoreRequest;
@@ -37,48 +35,12 @@ class SheetController extends Controller
         return redirect()->route('sheet.index');
     }
 
-    /**
-     * Show the specified resource.
-     * @return Response
-     */
-    public function show()
-    {
-        return view('project::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
-    {
-        return view('project::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function update(Request $request)
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @return Response
-     */
-    public function destroy()
-    {
-    }
-
     public function prepareData($request): array
     {
         $rows = $request->input('row');
 
         foreach ($rows as $row)
         {
-
             $objects[] = [
                 'user_id' => auth()->id(),
                 'description' => $row['description'],

@@ -432,17 +432,74 @@
                         data-original-title="داشبورد"></i>
             </li>
 
+            <li class="{{{ (Request::is('timesheet') ? 'active' : '') }}} {{{ (Request::is('dashboard') ? 'active' : '') }}} {{{ (Request::is('Newtdl') ? 'active' : '') }}} nav-item has-sub">
+                <a class="orangeColor" href="#"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.templates.main">  فعالیت</span></a>
 
-            <li class=" {{{ (Request::is('timesheet') ? 'active' : '') }}} nav-item">
-                <a class="orangeColor" href="/timesheet"><i class="ft-clipboard"></i><span class="menu-title" data-i18n="nav.dash.main">تایم شیت من</span></a>
+                <ul class="menu-content" style="">
+
+                    <li style="" class="{{{ (Request::is('timesheet') ? 'active' : '') }}}   nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('timesheet') ? 'active' : '') }}}  " href="{{ url('/timesheet') }}" data-i18n="nav.templates.vert.classic_menu"> تایم شیت من  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('dashboard') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('dashboard') ? 'active' : '') }}}  " href="{{ url('/dashboard') }}" data-i18n="nav.templates.vert.classic_menu"> فعالیت ارجاع شده من  </a>
+                    </li>
+
+                    <li style="" class="{{{ (Request::is('Newtdl') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('Newtdl') ? 'active' : '') }}}  " href="{{ url('/Newtdl') }}" data-i18n="nav.templates.vert.classic_menu"> فعالیت ها (جدید)   </a>
+                    </li>
+                </ul>
             </li>
 
-            <li class=" {{{ (Request::is('dashboard') ? 'active' : '') }}} nav-item">
-                <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ارجاع شده من</span></a>
+
+{{--            <li class=" {{{ (Request::is('timesheet') ? 'active' : '') }}} nav-item">--}}
+{{--                <a class="orangeColor" href="/timesheet"><i class="ft-clipboard"></i><span class="menu-title" data-i18n="nav.dash.main">تایم شیت من</span></a>--}}
+{{--            </li>--}}
+
+{{--            <li class=" {{{ (Request::is('dashboard') ? 'active' : '') }}} nav-item">--}}
+{{--                <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ارجاع شده من</span></a>--}}
+{{--            </li>--}}
+
+{{--            <li class=" {{{ (Request::is('Newtdl') ? 'active' : '') }}} nav-item">--}}
+{{--                <a class="orangeColor" href="/Newtdl"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ها (جدید)  </span></a>--}}
+{{--            </li>--}}
+
+            <li class="{{{ (Request::is('*project*') ? 'active' : '') }}}  nav-item has-sub">
+                    <a class="orangeColor" href="#"><i class="icon-puzzle"></i><span class="menu-title" data-i18n="nav.templates.main"> مدیریت پروژه ها </span></a>
+
+                <ul class="menu-content" style="">
+
+                    <li style="" class="{{{ (Request::is('*project/sheet*') ? 'active' : '') }}}   nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*invoices*') ? 'active' : '') }}}  " href="{{ route('sheet.index') }}" data-i18n="nav.templates.vert.classic_menu"> تایم شیت پروژه آزادگان  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('*project/doc*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*tenders*') ? 'active' : '') }}}  " href="{{ route('doc.index') }}" data-i18n="nav.templates.vert.classic_menu"> مستندات پروژه آزادگان  </a>
+                    </li>
+
+
+
+                </ul>
             </li>
 
-            <li class=" {{{ (Request::is('Newtdl') ? 'active' : '') }}} nav-item">
-                <a class="orangeColor" href="/Newtdl"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ها (جدید)  </span></a>
+            <li class="{{{ (Request::is('*satellite*') ? 'active' : '') }}}  nav-item has-sub">
+                    <a class="orangeColor" href="#"><i class="icon-puzzle"></i><span class="menu-title" data-i18n="nav.templates.main"> مدیریت شناور ها </span></a>
+
+                <ul class="menu-content" style="">
+
+                    <li style="" class="{{{ (Request::is('*satellite*') ? 'active' : '') }}}   nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*satellite*') ? 'active' : '') }}}  " href="{{ route('satellite.index') }}" data-i18n="nav.templates.vert.classic_menu"> ماهواره ها </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('*satellite/sfloat*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*sfloat*') ? 'active' : '') }}}  " href="{{ route('sfloat.index') }}" data-i18n="nav.templates.vert.classic_menu"> شناورها </a>
+                    </li>
+
+                    <li style="" class="{{{ (Request::is('*satellite*') ? 'active' : '') }}}   nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*satellite*') ? 'active' : '') }}}  " href="{{ route('satellite.index') }}" data-i18n="nav.templates.vert.classic_menu"> صورت حساب ها </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('*satellite/sfloat*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*sfloat*') ? 'active' : '') }}}  " href="{{ route('sfloat.index') }}" data-i18n="nav.templates.vert.classic_menu"> qos پهنای باند </a>
+                    </li>
+                    
+                </ul>
             </li>
 
             <li class="{{{ (Request::is('*invoices*') ? 'active' : '') }}} {{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item has-sub">
@@ -465,37 +522,6 @@
 
 
 
-            {{-- <li class="{{{ (Request::is('invoices') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/invoices"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main">پیش فاکتورهای صادرشده </span></a>
-            </li> --}}
-
-
-
-
-            {{-- <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/tenders"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">کار پذیری</span></a>
-            </li> --}}
-
-            <li class="{{{ (Request::is('Inquiry') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Inquiry"><i class="icon-basket"></i><span class="menu-title" data-i18n="nav.dash.main">  ثبت استعلامات  </span></a>
-
-            </li>
-
-            <li class="{{{ (Request::is('avl') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/avl"><i class="icon-basket"></i><span class="menu-title" data-i18n="nav.dash.main">تامین کنندگان کالا  </span></a>
-
-            </li>
-
-
-            {{-- @if(auth()->user()->id == 48 || auth()->user()->id == 53 ||auth()->user()->id == 51 || auth()->user()->id == 6 || auth()->user()->id == 34 || auth()->user()->id == 40 || auth()->user()->id == 39 || auth()->user()->id == 35) --}}
-            <li class="{{{ (Request::is('contracts') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/contracts"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
-            </li>
-            {{-- @endif --}}
-
-            <li class="{{{ (Request::is('SellersContracts') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/SellersContracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
-            </li>
 
 
 
@@ -564,104 +590,123 @@
                 <a class="orangeColor" href="/financialGuarantes"><i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">ضمانت نامه مالی</span></a>
             </li>
 
-            <li style="" class="{{{ (Request::is('Approval') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Approval"><i class="icon-magnet"></i><span class="menu-title" data-i18n="nav.dash.main">مصوبات</span></a>
-            </li>
+
 
             {{-- <li style="" class="{{{ (Request::is('Proceedings') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/Proceedings"><i class="icon-magnet"></i><span class="menu-title" data-i18n="nav.dash.main">مصوبات</span></a>
             </li> --}}
 
-            <li class="{{{ (Request::is('Certificates') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Certificates"><i class="icon-badge"></i><span class="menu-title" data-i18n="nav.dash.main">رتبه ها و گواهینامه ها</span></a>
-            </li>
-            <li class="{{{ (Request::is('Dokumentation') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Dokumentation"><i class=" icon-picture"></i><span class="menu-title" data-i18n="nav.dash.main">مستندات </span></a>
-            </li>
-             <li class="{{{ (Request::is('regulations') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
-            </li>
-
-            <li class="{{{ (Request::is('instructions') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/instructions"><i class="icon-rocket"></i><span class="menu-title" data-i18n="nav.dash.main">دستورالعمل ها  </span></a>
-            </li>
-
-            <li class="{{{ (Request::is('phoneBooks') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/phoneBooks"><i class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
-            </li>
 
 
-            <li style="" class="{{{ (Request::is('Suggestions') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Suggestions"><i class="icon-feed"></i><span class="menu-title" data-i18n="nav.dash.main"> پیشنهادات و انتقادات</span></a>
-            </li>
-            <li style="" class="{{{ (Request::is('Baner') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Baner"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">  اطلاعیه ها</span></a>
-            </li>
 
-            <li style="" class="{{{ (Request::is('forms') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/forms"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main"> فرم ها</span></a>
-            </li>
-            <li style="" class="{{{ (Request::is('consent') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/consent"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main"> رضایت نامه ها</span></a>
-            </li>
 
-            <li style="" class="{{{ (Request::is('PerformanceEvaluation/create') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/PerformanceEvaluation/create"><i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">کارکرد ارزیابی عملکرد</span></a>
-            </li>
 
-            {{-- <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/dailyWork"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> گزارش روزانه</span></a>
-            </li> --}}
-            <li style="" class="{{{ (Request::is('InfoCompany') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/InfoCompany"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> اطلاعات دفتر</span></a>
-            </li>
 
-            <li style="" class="{{{ (Request::is('chat') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/chat"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">  چت</span></a>
-            </li>
 
-            <li style="" class="{{{ (Request::is('divar') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/divar"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">  دیوار</span></a>
-            </li>
 
-            {{-- <li class="{{{ (Request::is('*archives*') ? 'active' : '') }}}   nav-item has-sub">
-                <a class="orangeColor" href="#"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.templates.main"> ارجاع کار</span></a>
+
+
+
+
+            <li class="{{{ (Request::is('SellersContracts') ? 'active' : '') }}}{{{ (Request::is('contracts') ? 'active' : '') }}} {{{ (Request::is('avl') ? 'active' : '') }}} {{{ (Request::is('Inquiry') ? 'active' : '') }}} {{{ (Request::is('consent') ? 'active' : '') }}} {{{ (Request::is('Certificates') ? 'active' : '') }}} {{{ (Request::is('Dokumentation') ? 'active' : '') }}} {{{ (Request::is('regulations') ? 'active' : '') }}} {{{ (Request::is('instructions') ? 'active' : '') }}} nav-item has-sub">
+                <a class="orangeColor" href="#"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.templates.main">  بازرگانی</span></a>
 
                 <ul class="menu-content" style="">
 
-                    <li style="" class="{{{ (Request::is('*invoices*') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor {{{ (Request::is('*invoices*') ? 'active' : '') }}}  " href="{{ url('/invoices') }}" data-i18n="nav.templates.vert.classic_menu"> استعلام /صدورپیش فاکتور  </a>
+                    <li style="" class="{{{ (Request::is('consent') ? 'active' : '') }}}   nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('consent') ? 'active' : '') }}}  " href="{{ url('/consent') }}" data-i18n="nav.templates.vert.classic_menu"> رضایت نامه ها  </a>
                     </li>
-                    <li style="" class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor {{{ (Request::is('*tenders*') ? 'active' : '') }}}  " href="{{ url('/tenders') }}" data-i18n="nav.templates.vert.classic_menu"> مناقصه/کارپذیری  </a>
+                    <li style="" class="{{{ (Request::is('Certificates') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('Certificates') ? 'active' : '') }}}  " href="{{ url('/Certificates') }}" data-i18n="nav.templates.vert.classic_menu"> رتبه ها و گواهینامه ها  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('Dokumentation') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('Dokumentation') ? 'active' : '') }}}  " href="{{ url('/Dokumentation') }}" data-i18n="nav.templates.vert.classic_menu">مستندات  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('regulations') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('regulations') ? 'active' : '') }}}  " href="{{ url('/regulations') }}" data-i18n="nav.templates.vert.classic_menu">آیین نامه ها </a>
+                    </li>
+
+
+                    <li style="" class="{{{ (Request::is('instructions') ? 'active' : '') }}}   nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('instructions') ? 'active' : '') }}}  " href="{{ url('/instructions') }}" data-i18n="nav.templates.vert.classic_menu"> دستورالعمل ها  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('Inquiry') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('Inquiry') ? 'active' : '') }}}  " href="{{ url('/Inquiry') }}" data-i18n="nav.templates.vert.classic_menu">  ثبت استعلامات   </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('avl') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('avl') ? 'active' : '') }}}  " href="{{ url('/avl') }}" data-i18n="nav.templates.vert.classic_menu">تامین کنندگان کالا  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('contracts') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('contracts') ? 'active' : '') }}}  " href="{{ url('/contracts') }}" data-i18n="nav.templates.vert.classic_menu">قرارداد با کارفرمایان  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('SellersContracts') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('SellersContracts') ? 'active' : '') }}}  " href="{{ url('/SellersContracts') }}" data-i18n="nav.templates.vert.classic_menu">قرارداد با پیمانکاران   </a>
                     </li>
 
 
 
                 </ul>
-            </li> --}}
+            </li>
 
 
-            @can('administrator')
-                <li class="{{{ (Request::is('users') ? 'active' : '') }}}   nav-item has-sub">
+            <li class="{{{ (Request::is('Suggestions') ? 'active' : '') }}} {{{ (Request::is('PerformanceEvaluation/create') ? 'active' : '') }}} {{{ (Request::is('chat') ? 'active' : '') }}} {{{ (Request::is('divar') ? 'active' : '') }}} {{{ (Request::is('phoneBooks') ? 'active' : '') }}} nav-item has-sub">
+                <a class="orangeColor" href="#"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.templates.main">  سایر</span></a>
+
+                <ul class="menu-content" style="">
+
+                    <li style="" class="{{{ (Request::is('chat') ? 'active' : '') }}}   nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('chat') ? 'active' : '') }}}  " href="{{ url('/chat') }}" data-i18n="nav.templates.vert.classic_menu"> چت  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('divar') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('divar') ? 'active' : '') }}}  " href="{{ url('/divar') }}" data-i18n="nav.templates.vert.classic_menu"> دیوار  </a>
+                    </li>
+
+                    <li style="" class="{{{ (Request::is('phoneBooks') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('phoneBooks') ? 'active' : '') }}}  " href="{{ url('/phoneBooks') }}" data-i18n="nav.templates.vert.classic_menu">دفترچه تلفن   </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('Suggestions') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('Suggestions') ? 'active' : '') }}}  " href="{{ url('/Suggestions') }}" data-i18n="nav.templates.vert.classic_menu">پیشنهادات و انتقادات  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('PerformanceEvaluation/create') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('PerformanceEvaluation/create') ? 'active' : '') }}}  " href="{{ url('/PerformanceEvaluation/create') }}" data-i18n="nav.templates.vert.classic_menu">کارکرد ارزیابی عملکرد   </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('Approval') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('Approval') ? 'active' : '') }}}  " href="{{ url('/Approval') }}" data-i18n="nav.templates.vert.classic_menu">مصوبات   </a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+
+
+                <li class="{{{ (Request::is('Baner') ? 'active' : '') }}} {{{ (Request::is('InfoCompany') ? 'active' : '') }}} {{{ (Request::is('forms') ? 'active' : '') }}} {{{ (Request::is('dailyWorkAllUser') ? 'active' : '') }}}{{{ (Request::is('users') ? 'active' : '') }}}   nav-item has-sub">
                     <a class="orangeColor" href="#"><i class="ft-settings"></i><span class="menu-title" data-i18n="nav.templates.main">تنظیمات سیستم</span></a>
 
                     <ul class="menu-content" style="">
-                        <li style="" class="{{{ (Request::is('users') ? 'active' : '') }}}  nav-item">
-                            <a class="menu-item orangeColor" href="users" data-i18n="nav.templates.vert.classic_menu">مدیریت کاربران</a>
-                        </li>
+                        @can('administrator')
+                            <li style="" class="{{{ (Request::is('users') ? 'active' : '') }}}  nav-item">
+                                <a class="menu-item orangeColor" href="/users" data-i18n="nav.templates.vert.classic_menu">مدیریت کاربران</a>
+                            </li>
 
-                        {{-- <li style="" class="{{{ (Request::is('users') ? 'active' : '') }}}  nav-item">
-                            <a class="menu-item orangeColor" href="" data-i18n="nav.templates.vert.classic_menu">مدیریت تایم شیت کارکنان</a>
-                        </li> --}}
+                            <li style="" class="{{{ (Request::is('dailyWorkAllUser') ? 'active' : '') }}}  nav-item">
+                                <a class="menu-item orangeColor" href="/dailyWorkAllUser" data-i18n="nav.templates.vert.classic_menu">مدیریت فعالیت های کارکنان</a>
+                            </li>
+                        @endcan
+                            <li style="" class="{{{ (Request::is('forms') ? 'active' : '') }}}  nav-item">
+                                <a class="menu-item orangeColor" href="/forms" data-i18n="nav.templates.vert.classic_menu"> فرم ها</a>
+                            </li>
+                            <li style="" class="{{{ (Request::is('InfoCompany') ? 'active' : '') }}}  nav-item">
+                                <a class="menu-item orangeColor" href="/InfoCompany" data-i18n="nav.templates.vert.classic_menu">اطلاعات دفتر</a>
+                            </li>
+                            <li style="" class="{{{ (Request::is('Baner') ? 'active' : '') }}}  nav-item">
+                                <a class="menu-item orangeColor" href="/Baner" data-i18n="nav.templates.vert.classic_menu">اطلاعیه ها</a>
+                            </li>
 
-                        <li style="" class="{{{ (Request::is('dailyWorkAllUser') ? 'active' : '') }}}  nav-item">
-                            <a class="menu-item orangeColor" href="/dailyWorkAllUser" data-i18n="nav.templates.vert.classic_menu">مدیریت فعالیت های کارکنان</a>
-                        </li>
 
                     </ul>
                 </li>
-            @endcan
+
 
 
         </ul>
@@ -711,7 +756,7 @@
         // formatDate: "YYYY/MM/DD hh:mm:ss:ms"
     });
     });
-    
+
 
     $(function () {
         $(".date").persianDatepicker({

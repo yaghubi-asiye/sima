@@ -4,7 +4,7 @@ namespace Modules\Project\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class DocsProject extends Model
 {
-    protected $fillable = [];
+    protected $guarded = [];
 }

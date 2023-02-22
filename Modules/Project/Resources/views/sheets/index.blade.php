@@ -42,11 +42,19 @@
                                         @foreach($data as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td style="white-space: normal">{{ $item->day }}</td>
-                                                <td>{{ jdate($item->date) }}</td>
-                                                <td style="white-space: normal">{{ $item->start_time }}</td>
-                                                <td style="white-space: normal">{{ $item->end_time }}</td>
-                                                <td style="white-space: normal">{{ $item->end_time }}</td>
+                                                <td>{{ $item->day }}</td>
+                                                <td>{{ jdate($item->date)->format('Y/m/d') }}</td>
+                                                <td>{{ $item->start_time }}</td>
+                                                <td>{{ $item->end_time }}</td>
+                                                <td>
+                                                    <?php
+                                                        $startTime = \Carbon\Carbon::parse($item->start_time);
+                                                        $endTime = \Carbon\Carbon::parse($item->end_time);
+
+                                                        $totalDuration =  $startTime->diff($endTime)->format('%H:%I:%S');
+                                                       ?>
+                                                    {{ $totalDuration }}
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
