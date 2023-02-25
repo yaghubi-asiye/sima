@@ -26,6 +26,10 @@ abstract class Repository
     {
         return $this->model->where($col, $value)->orderBy('id', 'desc')->get();
     }
+    public function getByFilter($col, $value, $col2, $value2)
+    {
+        return $this->model->where($col, $value)->where($col2, $value2)->orderBy('id', 'desc')->get();
+    }
 
     public function getCountByAuth($col, $value)
     {

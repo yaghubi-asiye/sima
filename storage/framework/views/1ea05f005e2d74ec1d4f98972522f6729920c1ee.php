@@ -1,91 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <div class="modal fade text-left" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel17">شناورها</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <?php echo $__env->make('components.error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-                    <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="<?php echo e(route('sfloat.store')); ?>" class="form form-horizontal form-bordered striped-rows">
-                        <?php echo csrf_field(); ?>
-                        <div style="font-family:byekan" class="form-body">
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="name">نام   </label>
-                                <div class="col-md-9">
-                                    <input type="text" id="name" class="form-control" name="name">
-                                </div>
-                            </div>
-                            <input value="0" name="parent_id" type="hidden" />
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="saderKonandeh">ماهواره </label>
-                                <div class="col-md-9">
-                                    <select id="saderKonandeh" class="form-control"  name="satellite_id">
-                                        <option>انتخاب کنید</option>
-                                        <?php $__currentLoopData = $satellites; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="date_start">تاریخ آغاز</label>
-                                <div class="col-md-9">
-                                    <input style="font-family:Byekan" class="form-control"  placeholder="کلیک کنید" name="date_start" type="text" id="input1"/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="date_start">تاریخ اتمام</label>
-                                <div class="col-md-9">
-                                    <input style="font-family:Byekan" class="form-control"  placeholder="کلیک کنید" name="date_end" type="text" id="input1"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="saderKonandeh">کل پهنای باند </label>
-                                <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control"  name="hole_band">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="saderKonandeh">upload </label>
-                                <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control"  name="upload">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="saderKonandeh">download </label>
-                                <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control"  name="download">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="saderKonandeh"> نام سرویس دهنده</label>
-                                <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control"  name="name_service">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="font-family:Byekan" class="form-actions">
-                            <button type="submit" class="btn btn-success">
-                                <i class="fa fa-check-square-o"></i> افزودن
-                            </button>
-
-                            <button type="button" class="btn btn-warning mr-1" data-dismiss="modal">
-                                <i class="ft-x"></i> لغو
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
      <!--  Start Edit items -->
      <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -100,8 +14,9 @@
                  </div>
                  <div style="font-family:Byekan; direction: rtl" class="modal-body">
 
-                     <form  style="vertical-align:center;text-align:center" method="post" enctype="multipart/form-data" action="<?php echo e(route('sfloat.store')); ?>" class="form form-horizontal form-bordered striped-rows">
+                     <form  style="vertical-align:center;text-align:center" method="post" enctype="multipart/form-data" action="<?php echo e(route('sfloat.statusUpdate', $item->id)); ?>" class="form form-horizontal form-bordered striped-rows">
                          <?php echo csrf_field(); ?>
+                         <?php echo method_field('put'); ?>
                          <div class="form-body">
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="name">نام   </label>
@@ -123,42 +38,54 @@
                             <input value="<?php echo e($item->id); ?>" name="parent_id" type="hidden" />
                             <input value="<?php echo e($item->name); ?>" name="name" type="hidden" />
                             <input value="<?php echo e($item->satellite_id); ?>" name="satellite_id" type="hidden" />
+                            <input value="<?php echo e($filter); ?>" name="status" type="hidden" />
 
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="date_start">تاریخ آغاز</label>
                                 <div class="col-md-9">
-                                    <input style="font-family:Byekan" class="form-control" value="<?php echo e(jdate($item->date_start)->format('Y/m/d')); ?>"  placeholder="کلیک کنید" name="date_start" type="text" id="input1"/>
+                                    <input style="font-family:Byekan" disabled class="form-control" value="<?php echo e(jdate($item->date_start)->format('Y/m/d')); ?>"  placeholder="کلیک کنید" name="date_start" type="text" id="input1"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="date_start">تاریخ اتمام</label>
                                 <div class="col-md-9">
-                                    <input style="font-family:Byekan" class="form-control" value="<?php echo e(jdate($item->date_end)->format('Y/m/d')); ?>"   placeholder="کلیک کنید" name="date_end" type="text" id="input1"/>
+                                    <input style="font-family:Byekan" disabled class="form-control" value="<?php echo e(jdate($item->date_end)->format('Y/m/d')); ?>"   placeholder="کلیک کنید" name="date_end" type="text" id="input1"/>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="saderKonandeh">کل پهنای باند </label>
                                 <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control" value="<?php echo e($item->hole_band); ?>"  name="hole_band">
+                                    <input type="text" id="saderKonandeh" disabled class="form-control" value="<?php echo e($item->hole_band); ?>"  name="hole_band">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="saderKonandeh">upload </label>
                                 <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control" value="<?php echo e($item->upload); ?>" name="upload">
+                                    <input type="text" id="saderKonandeh" disabled class="form-control" value="<?php echo e($item->upload); ?>" name="upload">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="saderKonandeh">download </label>
                                 <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control" value="<?php echo e($item->download); ?>"  name="download">
+                                    <input type="text" id="saderKonandeh" disabled class="form-control" value="<?php echo e($item->download); ?>"  name="download">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="saderKonandeh"> نام سرویس دهنده</label>
                                 <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" class="form-control" value="<?php echo e($item->name_service); ?>" name="name_service">
+                                    <input type="text" id="saderKonandeh" disabled class="form-control" value="<?php echo e($item->name_service); ?>" name="name_service">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control">وضعیت </label>
+                                <div class="col-md-9">
+                                    <select class="form-control"  name="active">
+                                        <option>انتخاب کنید</option>
+                                        <option value="تایید">تایید</option>
+                                        <option value="عدم تایید">عدم تایید</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -227,7 +154,11 @@
 
                                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
-                                                <td style="white-space: normal"><?php echo e($item->name); ?></td>
+                                              
+                                                <td style="white-space: normal">
+                                                    <?php echo e($item->name); ?>
+
+                                                </td>
                                                 <td><?php echo e(jdate($item->date_start)->format('Y/m/d')); ?></td>
                                                 <td><?php echo e(jdate($item->date_end)->format('Y/m/d')); ?></td>
                                                 <td style="white-space: normal"><?php echo e($item->hole_band); ?></td>

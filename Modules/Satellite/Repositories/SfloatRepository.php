@@ -12,5 +12,10 @@ class SfloatRepository extends Repository
         return Sfloat::class;
     }
 
+    public function updateStatus($model, $status)
+    {
+        return $model->update(['status' => $status]);
+    }
+
 }
 

@@ -492,6 +492,14 @@
                         <a class="menu-item orangeColor {{{ (Request::is('*sfloat*') ? 'active' : '') }}}  " href="{{ route('sfloat.index') }}" data-i18n="nav.templates.vert.classic_menu"> شناورها </a>
                     </li>
 
+                    <li class="{{{ (Request::is('*satellite/sfloat*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*sfloat*') ? 'active' : '') }}}  " href="{{ route('sfloat.progressList', 'مالی') }}" data-i18n="nav.templates.vert.classic_menu"> فنی </a>
+                    </li>
+                    <li class="{{{ (Request::is('*satellite/sfloat*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*sfloat*') ? 'active' : '') }}}  " href="{{ route('sfloat.progressList', 'شناور') }}" data-i18n="nav.templates.vert.classic_menu"> مالی </a>
+                    </li>
+                    
+
                     <li style="" class="{{{ (Request::is('*satellite*') ? 'active' : '') }}}   nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*satellite*') ? 'active' : '') }}}  " href="{{ route('satellite.index') }}" data-i18n="nav.templates.vert.classic_menu"> صورت حساب ها </a>
                     </li>

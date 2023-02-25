@@ -479,15 +479,21 @@
                         <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> شناورها </a>
                     </li>
 
+                    <li class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.progressList', 'مالی')); ?>" data-i18n="nav.templates.vert.classic_menu"> فنی </a>
+                    </li>
+                    <li class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.progressList', 'شناور')); ?>" data-i18n="nav.templates.vert.classic_menu"> مالی </a>
+                    </li>
+                    
+
                     <li style="" class="<?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>   nav-item">
                         <a class="menu-item orangeColor <?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>  " href="<?php echo e(route('satellite.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> صورت حساب ها </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
                         <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> qos پهنای باند </a>
                     </li>
-
-
-
+                    
                 </ul>
             </li>
 
