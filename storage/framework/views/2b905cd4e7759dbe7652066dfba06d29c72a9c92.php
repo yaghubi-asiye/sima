@@ -425,14 +425,14 @@
                 <ul class="menu-content" style="">
 
                     <li style="" class="<?php echo e((Request::is('timesheet') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('timesheet') ? 'active' : '')); ?>  " href="<?php echo e(url('/timesheet')); ?>" data-i18n="nav.templates.vert.classic_menu"> تایم شیت من  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('timesheet') ? 'active' : '')); ?>  " href="<?php echo e(url('/timesheet')); ?>" > تایم شیت من  </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('dashboard') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('dashboard') ? 'active' : '')); ?>  " href="<?php echo e(url('/dashboard')); ?>" data-i18n="nav.templates.vert.classic_menu"> فعالیت ارجاع شده من  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('dashboard') ? 'active' : '')); ?>  " href="<?php echo e(url('/dashboard')); ?>" > فعالیت ارجاع شده من  </a>
                     </li>
 
                     <li style="" class="<?php echo e((Request::is('Newtdl') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('Newtdl') ? 'active' : '')); ?>  " href="<?php echo e(url('/Newtdl')); ?>" data-i18n="nav.templates.vert.classic_menu"> فعالیت ها (جدید)   </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('Newtdl') ? 'active' : '')); ?>  " href="<?php echo e(url('/Newtdl')); ?>" > فعالیت ها (جدید)   </a>
                     </li>
                 </ul>
             </li>
@@ -456,10 +456,10 @@
                 <ul class="menu-content" style="">
 
                     <li style="" class="<?php echo e((Request::is('*project/sheet*') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*invoices*') ? 'active' : '')); ?>  " href="<?php echo e(route('sheet.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> تایم شیت پروژه آزادگان  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*invoices*') ? 'active' : '')); ?>  " href="<?php echo e(route('sheet.index')); ?>" > تایم شیت پروژه آزادگان  </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('*project/doc*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*tenders*') ? 'active' : '')); ?>  " href="<?php echo e(route('doc.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> مستندات پروژه آزادگان  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*tenders*') ? 'active' : '')); ?>  " href="<?php echo e(route('doc.index')); ?>" > مستندات پروژه آزادگان  </a>
                     </li>
 
 
@@ -470,29 +470,42 @@
             <li class="<?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>  nav-item has-sub">
                     <a class="orangeColor" href="#"><i class="icon-puzzle"></i><span class="menu-title" data-i18n="nav.templates.main"> مدیریت شناور ها </span></a>
 
-                <ul class="menu-content" style="">
+                <ul class="menu-content">
 
-                    <li style="" class="<?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>  " href="<?php echo e(route('satellite.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> ماهواره ها </a>
+                    <li style="" class="<?php echo e((Request::is('*satellite/factor*') ? 'active' : '')); ?>   nav-item">
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*satellite/factor*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloatreporter.index')); ?>" > صورت حساب ها </a>
                     </li>
-                    <li style="" class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> شناورها </a>
+                    <li style="" class="<?php echo e((Request::is('*satellite/reporter*') ? 'active' : '')); ?>  nav-item">
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat/reporter*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloatreporter.store')); ?>" > qos پهنای باند </a>
                     </li>
+                    <?php if(auth()->user()->id == 30 || auth()->user()->id == 16 || auth()->user()->id == 12 || auth()->user()->id == 48): ?>
+                        <li style="" class="<?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>   nav-item">
+                            <a class="menu-item orangeColor <?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>  " href="<?php echo e(route('satellite.index')); ?>" > ماهواره ها </a>
+                        </li>
+                        <li style="" class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
+                            <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.index')); ?>" > شناورها </a>
+                        </li>
+                    <?php endif; ?>
 
+                    <?php if(auth()->user()->id == 40 || auth()->user()->id == 25 || auth()->user()->id == 23 || auth()->user()->id == 48): ?>
                     <li class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.progressList', 'مالی')); ?>" data-i18n="nav.templates.vert.classic_menu"> فنی </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.progressList', 'فنی')); ?>" > مالی </a>
                     </li>
-                    <li class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.progressList', 'شناور')); ?>" data-i18n="nav.templates.vert.classic_menu"> مالی </a>
-                    </li>
+                    <?php endif; ?>
                     
+                    <?php if(auth()->user()->id == 30 || auth()->user()->id == 50 || auth()->user()->id == 48): ?>
+                    <li class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.progressList', 'شناور')); ?>" >  فنی</a>
+                    </li>
+                    <?php endif; ?>
 
-                    <li style="" class="<?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*satellite*') ? 'active' : '')); ?>  " href="<?php echo e(route('satellite.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> صورت حساب ها </a>
+                    <?php if(auth()->user()->id == 6 || auth()->user()->id == 30 || auth()->user()->id == 48): ?>
+                    <li class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.progressList', 'مالی')); ?>" > مدیریت </a>
                     </li>
-                    <li style="" class="<?php echo e((Request::is('*satellite/sfloat*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*sfloat*') ? 'active' : '')); ?>  " href="<?php echo e(route('sfloat.index')); ?>" data-i18n="nav.templates.vert.classic_menu"> qos پهنای باند </a>
-                    </li>
+                    <?php endif; ?>
+
+                  
                     
                 </ul>
             </li>
@@ -503,10 +516,10 @@
                 <ul class="menu-content" style="">
 
                     <li style="" class="<?php echo e((Request::is('*invoices*') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*invoices*') ? 'active' : '')); ?>  " href="<?php echo e(url('/invoices')); ?>" data-i18n="nav.templates.vert.classic_menu"> استعلام /صدورپیش فاکتور  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*invoices*') ? 'active' : '')); ?>  " href="<?php echo e(url('/invoices')); ?>" > استعلام /صدورپیش فاکتور  </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('*tenders*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*tenders*') ? 'active' : '')); ?>  " href="<?php echo e(url('/tenders')); ?>" data-i18n="nav.templates.vert.classic_menu"> مناقصه/کارپذیری  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*tenders*') ? 'active' : '')); ?>  " href="<?php echo e(url('/tenders')); ?>" > مناقصه/کارپذیری  </a>
                     </li>
 
 
@@ -526,32 +539,32 @@
                 <ul class="menu-content" style="">
                     <?php if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 36  || auth()->user()->id == 54): ?>
                         <li style="" class="<?php echo e((Request::is('*archives*') ? 'active' : '')); ?> nav-item">
-                            <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/هیئت مدیره')); ?>" data-i18n="nav.templates.vert.classic_menu"> هیات مدیره</a>
+                            <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/هیئت مدیره')); ?>" > هیات مدیره</a>
                         </li>
                     <?php endif; ?>
                     <?php if(auth()->user()->id == 48 || auth()->user()->id == 6|| auth()->user()->id == 30|| auth()->user()->id == 35|| auth()->user()->id == 40|| auth()->user()->id == 45 || auth()->user()->id == 36 || auth()->user()->id == 54 ): ?>
                     <li style="" class="<?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/شورای مدیران')); ?>" data-i18n="nav.templates.vert.classic_menu"> شورای مدیران  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/شورای مدیران')); ?>" > شورای مدیران  </a>
                     </li>
                     <?php endif; ?>
                     <?php if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 50|| auth()->user()->id == 30  || auth()->user()->id == 36 || auth()->user()->id == 54 ): ?>
                     <li style="" class="<?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/بخش فنی')); ?>" data-i18n="nav.templates.vert.classic_menu"> بخش فنی  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/بخش فنی')); ?>" > بخش فنی  </a>
                     </li>
                     <?php endif; ?>
                     <?php if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 35 || auth()->user()->id == 28 || auth()->user()->id == 39 || auth()->user()->id == 34 || auth()->user()->id == 45 || auth()->user()->id == 53 || auth()->user()->id == 36 || auth()->user()->id == 54 ): ?>
                     <li style="" class="<?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/بازرگانی')); ?>" data-i18n="nav.templates.vert.classic_menu"> بازرگانی  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/بازرگانی')); ?>" > بازرگانی  </a>
                     </li>
                     <?php endif; ?>
                     <?php if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 25 || auth()->user()->id == 23 || auth()->user()->id == 40 || auth()->user()->id == 36 || auth()->user()->id == 54): ?>
                     <li style="" class="<?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/مالی')); ?>" data-i18n="nav.templates.vert.classic_menu"> مالی  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/مالی')); ?>" > مالی  </a>
                     </li>
                     <?php endif; ?>
 
                     <li style="" class="<?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/متفرقه')); ?>" data-i18n="nav.templates.vert.classic_menu"> متفرقه  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('*archives*') ? 'active' : '')); ?>  " href="<?php echo e(url('archives/متفرقه')); ?>" > متفرقه  </a>
                     </li>
 
 
@@ -572,54 +585,41 @@
 
 
 
-
-
-
-
-
-
-
-
-
-            <li class="<?php echo e((Request::is('SellersContracts') ? 'active' : '')); ?><?php echo e((Request::is('contracts') ? 'active' : '')); ?> <?php echo e((Request::is('avl') ? 'active' : '')); ?> <?php echo e((Request::is('Inquiry') ? 'active' : '')); ?> <?php echo e((Request::is('consent') ? 'active' : '')); ?> <?php echo e((Request::is('Certificates') ? 'active' : '')); ?> <?php echo e((Request::is('Dokumentation') ? 'active' : '')); ?> <?php echo e((Request::is('regulations') ? 'active' : '')); ?> <?php echo e((Request::is('instructions') ? 'active' : '')); ?> nav-item has-sub">
-                <a class="orangeColor" href="#"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.templates.main">  بازرگانی</span></a>
-
-                <ul class="menu-content" style="">
-
-                    <li style="" class="<?php echo e((Request::is('consent') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('consent') ? 'active' : '')); ?>  " href="<?php echo e(url('/consent')); ?>" data-i18n="nav.templates.vert.classic_menu"> رضایت نامه ها  </a>
-                    </li>
-                    <li style="" class="<?php echo e((Request::is('Certificates') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('Certificates') ? 'active' : '')); ?>  " href="<?php echo e(url('/Certificates')); ?>" data-i18n="nav.templates.vert.classic_menu"> رتبه ها و گواهینامه ها  </a>
-                    </li>
-                    <li style="" class="<?php echo e((Request::is('Dokumentation') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('Dokumentation') ? 'active' : '')); ?>  " href="<?php echo e(url('/Dokumentation')); ?>" data-i18n="nav.templates.vert.classic_menu">مستندات  </a>
-                    </li>
-                    <li style="" class="<?php echo e((Request::is('regulations') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('regulations') ? 'active' : '')); ?>  " href="<?php echo e(url('/regulations')); ?>" data-i18n="nav.templates.vert.classic_menu">آیین نامه ها </a>
-                    </li>
-
-
-                    <li style="" class="<?php echo e((Request::is('instructions') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('instructions') ? 'active' : '')); ?>  " href="<?php echo e(url('/instructions')); ?>" data-i18n="nav.templates.vert.classic_menu"> دستورالعمل ها  </a>
-                    </li>
-                    <li style="" class="<?php echo e((Request::is('Inquiry') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('Inquiry') ? 'active' : '')); ?>  " href="<?php echo e(url('/Inquiry')); ?>" data-i18n="nav.templates.vert.classic_menu">  ثبت استعلامات   </a>
-                    </li>
-                    <li style="" class="<?php echo e((Request::is('avl') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('avl') ? 'active' : '')); ?>  " href="<?php echo e(url('/avl')); ?>" data-i18n="nav.templates.vert.classic_menu">تامین کنندگان کالا  </a>
-                    </li>
-                    <li style="" class="<?php echo e((Request::is('contracts') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('contracts') ? 'active' : '')); ?>  " href="<?php echo e(url('/contracts')); ?>" data-i18n="nav.templates.vert.classic_menu">قرارداد با کارفرمایان  </a>
-                    </li>
-                    <li style="" class="<?php echo e((Request::is('SellersContracts') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('SellersContracts') ? 'active' : '')); ?>  " href="<?php echo e(url('/SellersContracts')); ?>" data-i18n="nav.templates.vert.classic_menu">قرارداد با پیمانکاران   </a>
-                    </li>
-
-
-
-                </ul>
+            <li style="" class="<?php echo e((Request::is('consent') ? 'active' : '')); ?>   nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('consent') ? 'active' : '')); ?>  " href="<?php echo e(url('/consent')); ?>" ><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">رضایت نامه ها  </span> </a>
             </li>
+            <li style="" class="<?php echo e((Request::is('Certificates') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('Certificates') ? 'active' : '')); ?>  " href="<?php echo e(url('/Certificates')); ?>" ><i class="icon-magnet"></i><span class="menu-title" data-i18n="nav.dash.main">  رتبه ها و گواهینامه ها </span>  </a>
+            </li>
+            <li style="" class="<?php echo e((Request::is('Dokumentation') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('Dokumentation') ? 'active' : '')); ?>  " href="<?php echo e(url('/Dokumentation')); ?>" > <i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">  مستندات</span> </a>
+            </li>
+            <li style="" class="<?php echo e((Request::is('regulations') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('regulations') ? 'active' : '')); ?>  " href="<?php echo e(url('/regulations')); ?>" ><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
+            </li>
+
+
+            <li style="" class="<?php echo e((Request::is('instructions') ? 'active' : '')); ?>   nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('instructions') ? 'active' : '')); ?>  " href="<?php echo e(url('/instructions')); ?>" > <i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">  دستورالعمل ها </span> </a>
+            </li>
+            <li style="" class="<?php echo e((Request::is('Inquiry') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('Inquiry') ? 'active' : '')); ?>  " href="<?php echo e(url('/Inquiry')); ?>" >   <i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main"> ثبت استعلامات   </span></a>
+            </li>
+            <li style="" class="<?php echo e((Request::is('avl') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('avl') ? 'active' : '')); ?>  " href="<?php echo e(url('/avl')); ?>" ><i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">تامین کنندگان کالا   </span> </a>
+            </li>
+            <li style="" class="<?php echo e((Request::is('contracts') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('contracts') ? 'active' : '')); ?>  " href="<?php echo e(url('/contracts')); ?>" > <i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد  با کارفرمایان </span> </a>
+            </li>
+            <li style="" class="<?php echo e((Request::is('SellersContracts') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor <?php echo e((Request::is('SellersContracts') ? 'active' : '')); ?>  " href="<?php echo e(url('/SellersContracts')); ?>" ><i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">  قرارداد با پیمانکاران </span>  </a>
+            </li>
+
+            <li style="" class="<?php echo e((Request::is('forms') ? 'active' : '')); ?>  nav-item">
+                <a class="menu-item orangeColor" href="/forms" > <i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">  فرم ها</span></a>
+            </li>
+
+
 
 
             <li class="<?php echo e((Request::is('Suggestions') ? 'active' : '')); ?> <?php echo e((Request::is('PerformanceEvaluation/create') ? 'active' : '')); ?> <?php echo e((Request::is('chat') ? 'active' : '')); ?> <?php echo e((Request::is('divar') ? 'active' : '')); ?> <?php echo e((Request::is('phoneBooks') ? 'active' : '')); ?> nav-item has-sub">
@@ -628,52 +628,50 @@
                 <ul class="menu-content" style="">
 
                     <li style="" class="<?php echo e((Request::is('chat') ? 'active' : '')); ?>   nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('chat') ? 'active' : '')); ?>  " href="<?php echo e(url('/chat')); ?>" data-i18n="nav.templates.vert.classic_menu"> چت  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('chat') ? 'active' : '')); ?>  " href="<?php echo e(url('/chat')); ?>" > چت  </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('divar') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('divar') ? 'active' : '')); ?>  " href="<?php echo e(url('/divar')); ?>" data-i18n="nav.templates.vert.classic_menu"> دیوار  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('divar') ? 'active' : '')); ?>  " href="<?php echo e(url('/divar')); ?>" > دیوار  </a>
                     </li>
 
                     <li style="" class="<?php echo e((Request::is('phoneBooks') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('phoneBooks') ? 'active' : '')); ?>  " href="<?php echo e(url('/phoneBooks')); ?>" data-i18n="nav.templates.vert.classic_menu">دفترچه تلفن   </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('phoneBooks') ? 'active' : '')); ?>  " href="<?php echo e(url('/phoneBooks')); ?>" >دفترچه تلفن   </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('Suggestions') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('Suggestions') ? 'active' : '')); ?>  " href="<?php echo e(url('/Suggestions')); ?>" data-i18n="nav.templates.vert.classic_menu">پیشنهادات و انتقادات  </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('Suggestions') ? 'active' : '')); ?>  " href="<?php echo e(url('/Suggestions')); ?>" >پیشنهادات و انتقادات  </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('PerformanceEvaluation/create') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('PerformanceEvaluation/create') ? 'active' : '')); ?>  " href="<?php echo e(url('/PerformanceEvaluation/create')); ?>" data-i18n="nav.templates.vert.classic_menu">کارکرد ارزیابی عملکرد   </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('PerformanceEvaluation/create') ? 'active' : '')); ?>  " href="<?php echo e(url('/PerformanceEvaluation/create')); ?>" >کارکرد ارزیابی عملکرد   </a>
                     </li>
                     <li style="" class="<?php echo e((Request::is('Approval') ? 'active' : '')); ?>  nav-item">
-                        <a class="menu-item orangeColor <?php echo e((Request::is('Approval') ? 'active' : '')); ?>  " href="<?php echo e(url('/Approval')); ?>" data-i18n="nav.templates.vert.classic_menu">مصوبات   </a>
+                        <a class="menu-item orangeColor <?php echo e((Request::is('Approval') ? 'active' : '')); ?>  " href="<?php echo e(url('/Approval')); ?>" >مصوبات   </a>
                     </li>
 
 
                 </ul>
             </li>
 
+          
 
-
-                <li class="<?php echo e((Request::is('Baner') ? 'active' : '')); ?> <?php echo e((Request::is('InfoCompany') ? 'active' : '')); ?> <?php echo e((Request::is('forms') ? 'active' : '')); ?> <?php echo e((Request::is('dailyWorkAllUser') ? 'active' : '')); ?><?php echo e((Request::is('users') ? 'active' : '')); ?>   nav-item has-sub">
+                <li class="<?php echo e((Request::is('Baner') ? 'active' : '')); ?> <?php echo e((Request::is('InfoCompany') ? 'active' : '')); ?> <?php echo e((Request::is('dailyWorkAllUser') ? 'active' : '')); ?><?php echo e((Request::is('users') ? 'active' : '')); ?>   nav-item has-sub">
                     <a class="orangeColor" href="#"><i class="ft-settings"></i><span class="menu-title" data-i18n="nav.templates.main">تنظیمات سیستم</span></a>
 
                     <ul class="menu-content" style="">
                         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('administrator')): ?>
                             <li style="" class="<?php echo e((Request::is('users') ? 'active' : '')); ?>  nav-item">
-                                <a class="menu-item orangeColor" href="/users" data-i18n="nav.templates.vert.classic_menu">مدیریت کاربران</a>
+                                <a class="menu-item orangeColor" href="/users" >مدیریت کاربران</a>
                             </li>
 
                             <li style="" class="<?php echo e((Request::is('dailyWorkAllUser') ? 'active' : '')); ?>  nav-item">
-                                <a class="menu-item orangeColor" href="/dailyWorkAllUser" data-i18n="nav.templates.vert.classic_menu">مدیریت فعالیت های کارکنان</a>
+                                <a class="menu-item orangeColor" href="/dailyWorkAllUser" >مدیریت فعالیت های کارکنان</a>
                             </li>
                         <?php endif; ?>
-                            <li style="" class="<?php echo e((Request::is('forms') ? 'active' : '')); ?>  nav-item">
-                                <a class="menu-item orangeColor" href="/forms" data-i18n="nav.templates.vert.classic_menu"> فرم ها</a>
-                            </li>
+                            
                             <li style="" class="<?php echo e((Request::is('InfoCompany') ? 'active' : '')); ?>  nav-item">
-                                <a class="menu-item orangeColor" href="/InfoCompany" data-i18n="nav.templates.vert.classic_menu">اطلاعات دفتر</a>
+                                <a class="menu-item orangeColor" href="/InfoCompany" >اطلاعات دفتر</a>
                             </li>
                             <li style="" class="<?php echo e((Request::is('Baner') ? 'active' : '')); ?>  nav-item">
-                                <a class="menu-item orangeColor" href="/Baner" data-i18n="nav.templates.vert.classic_menu">اطلاعیه ها</a>
+                                <a class="menu-item orangeColor" href="/Baner" >اطلاعیه ها</a>
                             </li>
 
 

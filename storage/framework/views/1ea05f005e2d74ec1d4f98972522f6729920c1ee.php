@@ -7,9 +7,9 @@
          <div class="modal-dialog modal-lg" role="document">
              <div   class="modal-content">
                  <div class="modal-header">
-                     <h4 class="modal-title" id="myModalLabel17">بروزرسانی  شناورها </h4>
+                     <h4 class="modal-title" id="myModalLabel17">تایید به روزرسانی  شناورها </h4>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                         <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                      </button>
                  </div>
                  <div style="font-family:Byekan; direction: rtl" class="modal-body">
@@ -19,7 +19,7 @@
                          <?php echo method_field('put'); ?>
                          <div class="form-body">
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="name">نام   </label>
+                                <label class="col-md-3 label-control" for="name">نام</label>
                                 <div class="col-md-9">
                                     <input type="text" id="name" disabled value="<?php echo e($item->name); ?>" class="form-control" name="name">
                                 </div>
@@ -72,9 +72,16 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="saderKonandeh"> نام سرویس دهنده</label>
+                                <label class="col-md-3 label-control" for=""> نام سرویس دهنده</label>
                                 <div class="col-md-9">
-                                    <input type="text" id="saderKonandeh" disabled class="form-control" value="<?php echo e($item->name_service); ?>" name="name_service">
+                                    <input type="text" id="" disabled class="form-control" value="<?php echo e($item->name_service); ?>" name="name_service">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control" for=""> مراحل تایید</label>
+                                <div class="col-md-9">
+                                    <p class="form-control">شناور -> مالی -> فنی -> مدیریت</p>
                                 </div>
                             </div>
 
@@ -83,8 +90,8 @@
                                 <div class="col-md-9">
                                     <select class="form-control"  name="active">
                                         <option>انتخاب کنید</option>
-                                        <option value="تایید">تایید</option>
-                                        <option value="عدم تایید">عدم تایید</option>
+                                        <option value="1">تایید</option>
+                                        <option value="0">عدم تایید</option>
                                     </select>
                                 </div>
                             </div>
@@ -122,7 +129,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h1 class="">لیست   شناورها</h1>
+                                <h1 class="">لیست   تغییرات شناورهایی که باید توسط شما تایید شود</h1>
                                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -134,7 +141,6 @@
                                 </div>
                             </div>
                             <div class="card-content collapse show">
-                                <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
                                 <div class="card-body card-dashboard"><br><br>
                                     <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
                                         <thead>
@@ -147,7 +153,6 @@
                                             <th>download</th>
                                             <th>نام سرویس دهنده</th>
                                             <th>آخرین درخواست تغییر</th>
-                                            <th>ویرایش</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -156,8 +161,37 @@
                                             <tr>
                                               
                                                 <td style="white-space: normal">
-                                                    <?php echo e($item->name); ?>
+                                                    <div id="accordionWrapa1" role="tablist" aria-multiselectable="true">
+                                                        <div class="card">
+                                                            <div id="heading1"  class="card-header">
+                                                                <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion1" aria-expanded="true" aria-controls="accordion1" class="card-title lead">
+                                                                    <?php echo e($item->name); ?>
 
+                                                                </a>
+                                                            </div>
+                                                            <?php $__currentLoopData = $item->parent; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                <div id="accordion1" role="tabpanel" aria-labelledby="heading1" class="card-collapse collapse in" aria-expanded="true">
+                                                                    <div class="card-body">
+                                                                        <div class="card-block">
+                                                                           <h6 style="white-space: nowrap">
+                                                                                <?php echo e($value->id); ?>, <?php echo e($value->status); ?> , <?php echo e($value->download); ?>, <?php echo e($value->name_service); ?>
+
+                                                                                <?php if($value->status != 'مالی'): ?>
+                                                                                    <p style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" >
+                                                                                        <a data-toggle="modal" data-target="#EditSloat<?php echo e($item->id); ?>">
+                                                                                            <i style="font-size: 20px" class="ft-edit"></i>
+                                                                                        </a>
+                                                                                    </p>
+                                                                                <?php endif; ?>
+                                                                            </h6> 
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                           
+                                                        </div>
+                                                    </div>
+                                                    
                                                 </td>
                                                 <td><?php echo e(jdate($item->date_start)->format('Y/m/d')); ?></td>
                                                 <td><?php echo e(jdate($item->date_end)->format('Y/m/d')); ?></td>
@@ -166,12 +200,7 @@
                                                 <td style="white-space: normal"><?php echo e($item->download); ?></td>
                                                 <td style="white-space: normal"><?php echo e($item->name_service); ?></td>
                                                 <td><?php echo e(jdate($item->updated_at)->format('Y/m/d')); ?></td>
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" >
-                                                   
-                                                    <a data-toggle="modal" data-target="#EditSloat<?php echo e($item->id); ?>">
-                                                        <i style="font-size: 20px" class="ft-edit"></i>
-                                                    </a>
-                                                </td>
+                                                
 
                                             </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

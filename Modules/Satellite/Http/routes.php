@@ -11,5 +11,10 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'satellite', 'namespa
     Route::post('/sfloat/store', 'SfloatController@store')->name('sfloat.store');
     Route::put('/sfloat/statusUpdate/{id}', 'SfloatController@statusUpdate')->name('sfloat.statusUpdate');
 
+    Route::get('/factor', 'FactorController@index')->name('sfloatfactor.index');
+    Route::post('/factor/store', 'FactorController@store')->name('sfloatfactor.store');
+
+    Route::get('/reporter', 'ReporterController@index')->name('sfloatreporter.index');
+    Route::post('/reporter/store', 'ReporterController@store')->name('sfloatreporter.store');
 
 });

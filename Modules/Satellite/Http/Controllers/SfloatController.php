@@ -27,7 +27,8 @@ class SfloatController extends Controller
     public function progressList($filter)
     {
         
-        $data = $this->satellites->getByFilter('parent_id', 0, 'status', $filter);
+        // $data = $this->satellites->getByFilter('parent_id', 0, 'status', $filter);
+        $data = $this->satellites->getBy('status', $filter);
         $satellites = Satellite::all();
         return view('satellite::sfloats.progressList', compact('data', 'satellites', 'filter'));
     }
@@ -44,7 +45,12 @@ class SfloatController extends Controller
     {
         if($request->active == '1') 
         {
-            $status = $request->status;
+            if($request->status == 'شناور')
+                $status = 'مالی';
+            elseif($request->status == 'مالی')
+                $status = 'فنی';
+            elseif($request->status == 'فنی')
+                $status = 'مدیریت';
         } else 
         {
             $status = 'شناور';

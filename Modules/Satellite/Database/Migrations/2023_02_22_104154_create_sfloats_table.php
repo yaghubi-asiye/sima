@@ -27,7 +27,7 @@ class CreateSfloatsTable extends Migration
             $table->string('upload')->nullable();
             $table->string('download')->nullable();
             $table->string('name_service')->nullable();
-            $table->enum('status', ['فنی', 'شناور', 'مالی'])->nullable();
+            $table->enum('status', ['فنی', 'شناور', 'مالی', 'اتمام یافته'])->nullable();
             $table->timestamps();
         });
     }
